@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const themes = {
-  cupcake: "cupcake",
+  emerald: "emerald",
   dark: "dark",
 };
 
@@ -11,7 +11,7 @@ const getUserFromLocalStorage = () => {
 };
 
 const getThemeFromLocalStorage = () => {
-  const theme = localStorage.getItem("theme") || themes.cupcake;
+  const theme = localStorage.getItem("theme") || themes.emerald;
   document.documentElement.setAttribute("data-theme", theme);
   return theme;
 };
@@ -36,8 +36,8 @@ const userSlice = createSlice({
       toast.success("Logged out successfully");
     },
     toggleTheme: (state) => {
-      const { dark, cupcake } = themes;
-      state.theme = state.theme === dark ? cupcake : dark;
+      const { dark, emerald } = themes;
+      state.theme = state.theme === dark ? emerald : dark;
       document.documentElement.setAttribute("data-theme", state.theme);
       localStorage.setItem("theme", state.theme);
     },
